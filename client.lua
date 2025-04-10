@@ -9,13 +9,13 @@
 -- Vérification de version
 CreateThread(function()
     local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version', 0)
-    PerformHttpRequest('https://raw.githubusercontent.com/SalvaDev/bar-job/main/version.json', function(code, res, headers)
+    PerformHttpRequest('https://raw.githubusercontent.com/SalvaDev-ux/bar-job/main/version.json', function(code, res, headers)
         if code == 200 then
             local rv = json.decode(res)
             if rv.version ~= currentVersion then
                 print('^1[bar-job] ^1Une nouvelle version est disponible: ' .. rv.version)
                 print('^1[bar-job] ^1Votre version: ' .. currentVersion)
-                print('^1[bar-job] ^1Veuillez mettre à jour: https://github.com/SalvaDev/bar-job')
+                print('^1[bar-job] ^1Veuillez mettre à jour:https://github.com/SalvaDev-ux/bar-job')
             end
         else
             print('^1[bar-job] ^1Impossible de vérifier la version')
